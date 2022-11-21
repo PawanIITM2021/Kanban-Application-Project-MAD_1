@@ -1,0 +1,212 @@
+openapi: 3.0.0
+info:
+  title: KANBAN APIs
+  description: This is the complete APIs Documentation for the Project name KANBAN APPLICATION of Modern Application Development MAD_1.
+  version: 0.1.9
+  contact:
+    email: 21f2000999@student.onlinedegree.iitm.ac.in
+  
+
+servers:
+  - url: http://localhost:5000
+    description:  Main (production) server
+  
+paths:
+  /api/list/{<int:id>}:
+    get:
+      summary: Returns a list by ID. .
+      description: Optional extended description in CommonMark or HTML.
+      parameters:
+        - name: <int:id>
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : integer
+            format: int64
+            
+      responses:
+        '200':    # status code
+          description: A JSON array of list_id
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        '400':
+          description: The specified list ID is invalid (not a number).
+        '404':
+          description: A list with the specified ID was not found.       
+          
+  
+    delete:
+      summary: delete a list by ID. .
+      description: Optional extended description in CommonMark or HTML.
+      parameters:
+        - name: <int:id>
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : integer
+            format: int64
+            
+      responses:
+        '200':    # status code
+          description: Successfully Deleted a JSON array of list_id
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        '400':
+          description: The specified list ID is invalid (not a number).
+        '404':
+          description: A list with the specified ID was not found. 
+    put:
+      summary: update a list by ID. .
+      description: Optional extended description in CommonMark or HTML.
+      parameters:
+        - name: <int:id>
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : integer
+            format: int64
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+          
+            
+                
+      responses:
+        '201':    # status code
+          description: Successfully Update a JSON array of list_id
+          
+        '400':
+          description: The specified list ID is invalid (not a number).
+        '404':
+          description: A list with the specified ID was not found. 
+      
+  /api/list:
+      post:
+        summary: Creates a list.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+        responses: 
+          '201':
+            description: listform Created successfully
+            
+  /api/card/{<int:id>}:
+    get:
+      summary: Returns a Card by ID. .
+      description: Optional extended description in CommonMark or HTML.
+      parameters:
+        - name: <int:id>
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : integer
+            format: int64
+            
+      responses:
+        '200':    # status code
+          description: A JSON array of Card_id
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        '400':
+          description: The specified Card ID is invalid (not a number).
+        '404':
+          description: A Card with the specified ID was not found.  
+          
+    delete:
+      summary: delete a Card by ID. .
+      description: Optional extended description in CommonMark or HTML.
+      parameters:
+        - name: <int:id>
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : integer
+            format: int64
+            
+      responses:
+        '200':    # status code
+          description: Successfully Deleted a JSON array of Card_id
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        '400':
+          description: The specified Card ID is invalid (not a number).
+        '404':
+          description: A Card with the specified ID was not found. 
+    put:
+      summary: update a Card by ID. .
+      description: Optional extended description in CommonMark or HTML.
+      parameters:
+        - name: <int:id>
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : integer
+            format: int64
+      requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+          
+            
+                
+      responses:
+        '201':    # status code
+          description: Successfully Update a JSON array of Card_id
+          
+        '400':
+          description: The specified list ID is invalid (not a number).
+        '404':
+          description: A Card with the specified ID was not found. 
+  /api/card:
+    post:
+      summary: Creates a Card.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+      responses: 
+        '201':
+          description: listform Created successfully  
+            
